@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post">
+<p>ID：<input type="text" name="id" value="<%=id%>"></p>
+<p>姓名：<input type="text" name="name" value="<%=name%>"></p>
+<p>密码：<input type="text" name="password" value="<%=password%>"></p>
+    <button type="button" onclick="onDelete()">删除</button>
+    <button type="button" onclick="onUpdate()">修改</button>
+</form>
+<div></div>
+<div></div>
+<script src="jquery.js"></script>
+<script>
+function onDelete(){
+    $('form').attr('action','/delete').submit()
+}
+function onUpdate(){
+    $('form').attr('action','/update').submit()
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%=title%></title>
+</head>
+<body>
+register
+<div>
+    <input type="text" id="name">
+    <input type="text" name="" id="password">
+    <button onclick="register()">注册</button>
+</div>
+<script src="jquery.js"></script>
+<script>
+    function register(){
+        console.log(1);
+        var name = $('#name').val(),
+            password = $('#password').val();
+        $.ajax({
+            url:'/register',
+            type:'post',
+            data:{
+                name : name,
+                password:password
+            },
+            success:function(res){
+                console.log(res);
+            }
+        })
+    }
+</script>
+</body>
+</html>

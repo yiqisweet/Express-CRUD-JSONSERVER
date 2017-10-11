@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%=title%></title>
+</head>
+<body>
+login
+<div>
+    <input type="text" id="name">
+    <input type="text" name="" id="password">
+    <button onclick="login()">登录</button>
+</div>
+<a href="/register">去注册</a>
+<script src="jquery.js"></script>
+<script>
+    function login(){
+        console.log(1);
+        var name = $('#name').val(),
+            password = $('#password').val();
+        $.ajax({
+            url:'/login',
+            type:'post',
+            data:{
+                name : name,
+                password:password
+            },
+            success:function(res){
+                if(res.code === '20000'){
+                    alert('登录成功');
+                    location.href='/index?id='+res.id
+                }
+            }
+        })
+    }
+</script>
+</body>
+</html>
